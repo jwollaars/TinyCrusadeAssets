@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class GroupController : MonoBehaviour
 {
-    private List<GameObject> m_Group = new List<GameObject>();
+    public List<GameObject> m_Group = new List<GameObject>();
 
     public void AddToGroupList(GameObject go)
     {
@@ -19,5 +19,6 @@ public class GroupController : MonoBehaviour
     public void RemoveFromGroupList(GameObject go)
     {
         m_Group.Remove(go);
+        Destroy(go);
     }
 }
