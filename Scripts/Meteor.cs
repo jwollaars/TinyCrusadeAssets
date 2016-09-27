@@ -32,14 +32,7 @@ public class Meteor : MonoBehaviour
             //m_Rigidbody.AddForce(new Vector2((normalizedDir.x + Random.Range(-0.1f, 0.1f)) * Force, normalizedDir.y * Force), ForceMode2D.Impulse);
         }
 
-        //if (m_NoHit)
-        //{
-            transform.position += new Vector3(m_NormalizedDir.x, m_NormalizedDir.y, 0) * Time.deltaTime * 4;
-        //}
-        //else
-        //{
-            //transform.position += new Vector3(m_NormalizedDir.x, m_NormalizedDir.y, 0) * Time.deltaTime * 4;
-        //}
+        transform.position += new Vector3(m_NormalizedDir.x, m_NormalizedDir.y, 0) * Time.deltaTime * 4;
 
         if(m_Destroy)
         {
@@ -55,7 +48,6 @@ public class Meteor : MonoBehaviour
     public void ShootMeteor(Vector2 dir, float force)
     {
         m_NormalizedDir = dir * force;
-        //Debug.Log(m_NormalizedDir);
         m_NoHit = false;
         m_Destroy = true;
     }

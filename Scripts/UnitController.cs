@@ -23,11 +23,11 @@ public class UnitController : MonoBehaviour
 
         if (transform.position.x < m_TargetXpos+0.2f)
         {
-            m_AI.MoveSpeed = 1f;
+            m_AI.MoveSpeed = Random.Range(1f, 3f);
         }
         else if (transform.position.x > m_TargetXpos+0.2f)
         {
-            m_AI.MoveSpeed = -1f;
+            m_AI.MoveSpeed = Random.Range(-6f, -1f);
         }
         else
         {
@@ -37,6 +37,6 @@ public class UnitController : MonoBehaviour
 
     public void SetGroupOffset(float i)
     {
-        m_UnitPos = Random.Range(-i/10, i/10) + Random.Range(-0.2f, 0.2f);
+        m_UnitPos = Random.Range(-i/10, -3.5f) + Random.Range(-0.2f, 0);
     }
 }

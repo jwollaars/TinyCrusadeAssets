@@ -13,7 +13,7 @@ public class AI : MonoBehaviour
     private float m_AccelerationTimeAirborn = 0.2f;
     [SerializeField]
     private float m_AccelerationTimeGrounded = 0.1f;
-    private float m_MoveSpeed = 0.2f;
+    private float m_MoveSpeed = 1f;
     public float MoveSpeed
     {
         get { return m_MoveSpeed; }

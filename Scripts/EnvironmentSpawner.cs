@@ -11,6 +11,10 @@ public class EnvironmentSpawner : MonoBehaviour
     private GameObject[] m_EnvironmentObjects;
     private float m_EnvironmentArea = 0;
 
+    [SerializeField]
+    private GameObject m_BackgroundObject;
+    private float m_BackgroundArea = 0;
+
     // Use this for initialization
     void Start()
     {
@@ -20,6 +24,12 @@ public class EnvironmentSpawner : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        Plants();
+        Background();
+    }
+
+    private void Plants()
     {
         if (m_GameManager.GetDistanceMade > m_EnvironmentArea)
         {
@@ -56,6 +66,19 @@ public class EnvironmentSpawner : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+
+    private void Background()
+    {
+        if (m_GameManager.GetDistanceMade + 19.79f > 19.79f * m_BackgroundArea)
+        {
+            GameObject clone = Instantiate(m_BackgroundObject, new Vector3(19.79f * m_BackgroundArea, 0.15f, 3), Quaternion.identity) as GameObject;
+            if (m_BackgroundArea % 2 == 0)
+            {
+                clone.transform.localScale = new Vector3(-1, 1, 1);
+            }
+            m_BackgroundArea++;
         }
     }
 }

@@ -63,16 +63,30 @@ public class SpawnController : MonoBehaviour
             GameObject clone = Instantiate(m_Units[unit], new Vector3(m_CrusadeLeader.transform.position.x, m_CrusadeLeader.transform.position.y, 0), Quaternion.identity) as GameObject;
             clone.name = "Knight_Type_" + unit;
             m_GroupController.AddToGroupList(clone);
+
+            if(unit <= 1)
+            {
+                float randomShade = Random.Range(0.7f, 1f);
+                clone.GetComponent<SpriteRenderer>().color = new Color(randomShade, randomShade, randomShade);
+                float randomScale = Random.Range(4f, 6f);
+                clone.transform.localScale = new Vector3(-randomScale, randomScale, 1);
+            }
         }
         //m_GameManagerObj.GetComponent<GameManager>().m_CrusadeGroup.Add(clone);
     }
+
     public void SpawnUnit(int unit)
     {
-        GameObject clone = Instantiate(m_Units[unit], new Vector3(m_CrusadeLeader.transform.position.x, m_CrusadeLeader.transform.position.y, 0), Quaternion.identity) as GameObject;
+        GameObject clone = Instantiate(m_Units[unit], new Vector3(m_CrusadeLeader.transform.position.x-Random.Range(6f, 8f), m_CrusadeLeader.transform.position.y, 0), Quaternion.identity) as GameObject;
         clone.name = "Knight_Type_" + unit;
+        float randomShade = Random.Range(0.7f, 1f);
+        clone.GetComponent<SpriteRenderer>().color = new Color(randomShade, randomShade, randomShade);
+        float randomScale = Random.Range(4f, 6f);
+        clone.transform.localScale = new Vector3(-randomScale, randomScale, 1);
         m_GroupController.AddToGroupList(clone);
         //m_GameManagerObj.GetComponent<GameManager>().m_CrusadeGroup.Add(clone);
     }
+
     public void SpawnThreat(int hazard)
     {
         GameObject clone = Instantiate(m_Hazard[hazard], m_HazardSpawnLoc + new Vector2(m_CrusadeLeader.transform.position.x + Random.Range(-4f, 4f), 7), Quaternion.identity) as GameObject;
@@ -96,6 +110,6 @@ public class SpawnController : MonoBehaviour
         m_ThreatLevel = m_GameManagerObj.GetComponent<GameManager>().GetDistanceMade / 10;
         SpawnThreat(Random.Range(0, m_Hazard.Length));
 
-        m_ThreatController = StartCoroutine(ThreatCaller(10 - m_ThreatLevel));//m_HazardCooldown / m_ThreatLevel));
+        m_ThreatController = StartCoroutine(ThreatCaller(2));//m_HazardCooldown / m_ThreatLevel));
     }
 }

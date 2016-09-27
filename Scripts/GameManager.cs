@@ -77,9 +77,9 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-        if(m_GroupController.m_Group.Count <= 0)
+        if(m_GroupController.m_Group.Count <= 0 && m_EndScreen.active == false)
         {
-            m_EndScore.text = "Score: " + m_DistanceMade;
+            m_EndScore.text = "Score: " + Mathf.Round(m_DistanceMade);
             m_InGameScreen.SetActive(false);
             m_EndScreen.SetActive(true);
         }

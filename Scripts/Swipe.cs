@@ -56,12 +56,8 @@ public class Swipe : MonoBehaviour
                 float distance = Vector2.Distance(m_LastPosition, m_FirstPosition);
                 Debug.Log(distance);
 
-                //Debug.Log(normalizedDir);
-
                 if (m_SelectedObj != null && distance > 30f)
                 {
-                    //m_SelectedObj.GetComponent<Rigidbody2D>().AddForce(normalizedDir * m_SwipePower * m_SwipeForce * (distance / 10), ForceMode2D.Force);
-                    //m_SelectedObj.transform.position += new Vector3(normalizedDir.x, normalizedDir.y, 0) * m_SwipePower * m_SwipeForce;
                     m_SelectedObj.GetComponent<Meteor>().ShootMeteor(normalizedDir, m_SwipePower * m_SwipeForce);
                     m_SelectedObj = null;
                 }

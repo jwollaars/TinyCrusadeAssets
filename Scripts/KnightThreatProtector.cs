@@ -18,5 +18,10 @@ public class KnightThreatProtector : MonoBehaviour
         {
 
         }
+
+        if (m_KnightType == "SwordKnight")
+        {
+
+        }
     }
 }
